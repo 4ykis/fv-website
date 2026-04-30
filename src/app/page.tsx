@@ -1,0 +1,8 @@
+'use client';
+import { useState } from 'react';
+import { animeList } from '@/data/anime';
+import { AnimeCard } from '@/components/AnimeCard';
+import { SectionTitle } from '@/components/SectionTitle';
+
+const slides = animeList.slice(0,3);
+export default function Home(){const [index,setIndex]=useState(0);const slide=slides[index];return <div><section className={`relative wave-bg bg-softBlack py-16 text-white`}><div className="mx-auto max-w-6xl px-4"><div className={`h-80 rounded-3xl bg-gradient-to-br ${slide.posterGradient} p-8`}><p className="subtitle-lines inline-block pb-2 text-sm">Прем'єра тижня</p><h1 className="mt-4 text-5xl font-black">{slide.title}</h1><p className="mt-3 max-w-xl text-white/90">{slide.description}</p><button className="mt-8 rounded-xl bg-brandRed px-6 py-3 font-semibold">Дивитись</button></div><div className="mt-4 flex gap-2">{slides.map((_,i)=><button key={i} onClick={()=>setIndex(i)} className={`h-2 w-10 rounded-full ${index===i?'bg-brandRed':'bg-white/40'}`}/>)}</div></div></section><section className="mx-auto max-w-6xl px-4 py-14"><SectionTitle title="Популярне аніме" subtitle="Добірка релізів FanVox UA"/><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{animeList.slice(0,6).map(a=><AnimeCard key={a.slug} anime={a}/>)}</div></section><section className="mx-auto max-w-6xl px-4 pb-8"><SectionTitle title="Чому FanVox?"/><div className="grid gap-4 md:grid-cols-3">{['Живе озвучення','Якісний переклад','Аніме-атмосфера'].map(t=><div key={t} className="rounded-2xl bg-white p-6 shadow-soft"><p className="text-lg font-semibold">{t}</p><p className="mt-2 text-sm text-darkText/70">Преміальний продакшн, де кожна репліка звучить природно й емоційно.</p></div>)}</div></section></div>}
