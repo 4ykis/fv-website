@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-lightBg text-darkText antialiased;
+}
+
+.subtitle-lines {
+  background-image: linear-gradient(to right, rgba(227,34,26,.15) 50%, transparent 50%);
+  background-size: 16px 2px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+.wave-bg {
+  background-image: radial-gradient(circle at 20% 20%, rgba(227,34,26,.2), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(17,17,17,.13), transparent 40%);
+}
